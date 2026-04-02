@@ -1,0 +1,500 @@
+/* БАЗОВЫЕ НАСТРОЙКИ */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    scroll-behavior: smooth;
+}
+
+body {
+    background-color: #050505;
+    color: #ffffff;
+    font-family: 'Inter', sans-serif;
+    line-height: 1.6;
+    overflow-x: hidden;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+/* ГЛАВНЫЙ ЭКРАН */
+.hero {
+    height: 100vh;
+    background-image: 
+        radial-gradient(circle at 50% -20%, rgba(79, 172, 254, 0.15), transparent),
+        linear-gradient(to bottom, rgba(5, 5, 5, 0.8), #050505);
+    display: flex;
+    flex-direction: column;
+}
+
+.hero-container {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
+
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 40px 0;
+}
+
+.logo {
+    font-weight: 900;
+    letter-spacing: 2px;
+    font-size: 18px;
+}
+
+.header nav a {
+    color: #888;
+    text-decoration: none;
+    margin-left: 30px;
+    font-size: 14px;
+    transition: 0.3s;
+}
+
+.header nav a:hover { color: #fff; }
+
+.hero-content {
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center; /* Центровка строго по середине */
+    align-items: center;
+    text-align: center;
+}
+
+h1 {
+    font-size: clamp(40px, 8vw, 80px); /* Адаптивный размер шрифта */
+    font-weight: 900;
+    line-height: 1.1;
+    margin-bottom: 24px;
+    text-transform: uppercase;
+}
+
+.gradient-text {
+    background: linear-gradient(90deg, #4facfe 0%, #00f2fe 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.hero p {
+    font-size: 20px;
+    color: #aaa;
+    max-width: 550px;
+    margin-bottom: 40px;
+}
+
+/* КНОПКИ */
+.hero-btns { display: flex; gap: 20px; }
+
+.btn-primary {
+    background: #fff;
+    color: #000;
+    padding: 18px 36px;
+    border: none;
+    border-radius: 12px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: 0.3s;
+    text-transform: uppercase;
+    font-size: 14px;
+}
+
+.btn-primary:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 10px 30px rgba(255, 255, 255, 0.2);
+}
+
+.btn-secondary {
+    background: transparent;
+    color: #fff;
+    padding: 18px 36px;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 12px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: 0.3s;
+    text-transform: uppercase;
+    font-size: 14px;
+}
+
+.btn-secondary:hover { background: rgba(255, 255, 255, 0.05); }
+
+/* БЛОК О СООБЩЕСТВЕ */
+.about { padding: 120px 0; border-top: 1px solid rgba(255, 255, 255, 0.05); }
+
+.about-grid {
+    display: grid;
+    grid-template-columns: 1fr 1.5fr;
+    gap: 60px;
+}
+
+.about-title h2 {
+    font-size: 42px;
+    text-transform: uppercase;
+    font-weight: 800;
+    line-height: 1.1;
+}
+
+.about-text p {
+    font-size: 18px;
+    color: #888;
+    margin-bottom: 25px;
+}
+
+/* ТАРИФЫ */
+.pricing { padding: 120px 0; background: #080808; }
+
+.section-title {
+    font-size: 42px;
+    text-align: center;
+    margin-bottom: 80px;
+    text-transform: uppercase;
+    font-weight: 800;
+}
+
+.pricing-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+}
+
+.price-card {
+    background: rgba(255, 255, 255, 0.02);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    padding: 60px 40px;
+    border-radius: 24px;
+    text-align: center;
+    transition: 0.4s;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    min-height: 400px;
+}
+
+.price-card:hover {
+    border-color: #4facfe;
+    background: rgba(255, 255, 255, 0.04);
+}
+
+.price-card.featured {
+    border: 1px solid #4facfe;
+    background: rgba(79, 172, 254, 0.05);
+}
+
+.popular-badge {
+    position: absolute;
+    top: -15px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: #4facfe;
+    color: #000;
+    padding: 6px 16px;
+    border-radius: 100px;
+    font-size: 12px;
+    font-weight: 800;
+    text-transform: uppercase;
+}
+
+.price-card h3 { font-size: 24px; text-transform: uppercase; }
+.price { font-size: 48px; font-weight: 800; margin: 30px 0; }
+.price span { font-size: 16px; color: #555; }
+
+/* АДАПТИВ */
+@media (max-width: 992px) {
+    .about-grid { grid-template-columns: 1fr; }
+    .hero-btns { flex-direction: column; width: 100%; }
+    .btn-primary, .btn-secondary { width: 100%; }
+}
+
+/* ЧТО ВЫ ПОЛУЧАЕТЕ */
+.what-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 80px;
+    align-items: center;
+    padding: 100px 0;
+}
+
+.feature-item {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    margin-bottom: 30px;
+}
+
+.feature-icon {
+    font-size: 32px;
+    min-width: 60px;
+    height: 60px;
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 15px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid rgba(79, 172, 254, 0.3);
+}
+
+.features-image img {
+    width: 100%;
+    border-radius: 30px;
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5), 0 0 20px rgba(79, 172, 254, 0.2);
+}
+
+/* ОТЗЫВЫ */
+.reviews { padding: 100px 0; background: #080808; }
+
+.reviews-slider {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 40px;
+    margin-top: 50px;
+}
+
+.review-card {
+    max-width: 600px;
+    text-align: center;
+    background: rgba(255, 255, 255, 0.02);
+    padding: 50px;
+    border-radius: 24px;
+    border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.review-avatar {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    margin-bottom: 20px;
+    object-fit: cover;
+    border: 2px solid #4facfe;
+}
+
+.review-text { font-style: italic; color: #ccc; margin-bottom: 20px; }
+.review-name { font-size: 20px; margin-bottom: 5px; }
+.review-role { color: #4facfe; font-size: 14px; }
+
+.slider-btn {
+    background: none;
+    border: 1px solid #4facfe;
+    color: #4facfe;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.slider-btn:hover { background: #4facfe; color: #000; }
+
+.slider-dots { display: flex; justify-content: center; gap: 10px; margin-top: 30px; }
+.dot { width: 8px; height: 8px; background: #333; border-radius: 50%; cursor: pointer; }
+.dot.active { background: #4facfe; width: 20px; border-radius: 10px; }
+
+/* ФУТЕР */
+.footer {
+    padding: 60px 0 40px;
+    background: #050505;
+    border-top: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.footer-rules {
+    text-align: left;
+    max-width: 900px;
+    margin: 0 auto 50px;
+    display: grid;
+    gap: 30px;
+}
+
+.rule-block h4 {
+    color: #fff;
+    font-size: 14px;
+    margin-bottom: 10px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.rule-block p {
+    color: #666;
+    font-size: 13px;
+    line-height: 1.6;
+    margin-bottom: 8px;
+}
+
+.footer-links {
+    margin-bottom: 40px;
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    flex-wrap: wrap;
+}
+
+.accent-link {
+    color: #4facfe; /* Твой основной цвет аномалии */
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: 600;
+    transition: 0.3s;
+}
+
+.accent-link:hover {
+    text-shadow: 0 0 10px rgba(79, 172, 254, 0.5);
+    text-decoration: underline;
+}
+
+.footer-contacts {
+    border-top: 1px solid rgba(255, 255, 255, 0.05);
+    padding-top: 30px;
+    color: #888;
+    font-size: 14px;
+}
+
+.legal-info {
+    margin-top: 15px;
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    opacity: 0.5;
+    font-size: 12px;
+}
+
+/* Для мобилок */
+@media (max-width: 768px) {
+    .footer-rules { text-align: center; }
+    .legal-info { flex-direction: column; gap: 5px; }
+}
+/* Скрываем все карточки отзывов по умолчанию */
+.review-card {
+    display: none; /* Полностью скрываем */
+    opacity: 0;   /* Делаем прозрачной для анимации */
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    background: rgba(255, 255, 255, 0.03);
+    padding: 40px;
+    border-radius: 24px;
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    
+    /* Плавный переход для всех свойств (на всякий случай) */
+    transition: opacity 0.4s ease, transform 0.4s ease;
+}
+
+/* Стили для АКТИВНОЙ карточки (плавно появляется) */
+.review-card.active {
+    display: flex; /* Показываем структуру */
+    animation: fadeInReview 0.6s forwards; /* Запускаем анимацию */
+}
+
+.reviews-wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 30px;
+    margin-top: 50px;
+}
+
+.reviews-slider {
+    flex: 1;
+    max-width: 700px; /* Ограничиваем ширину текста */
+    display: flex;
+    justify-content: center;
+}
+
+/* Скрываем все карточки, кроме активной */
+.review-card {
+    display: none;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    background: rgba(255, 255, 255, 0.03);
+    padding: 40px;
+    border-radius: 24px;
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    animation: fadeIn 0.5s ease; /* Эффект появления */
+}
+
+.review-card.active {
+    display: flex;
+}
+
+/* Сама анимация появления */
+@keyframes fadeInReview {
+    from {
+        opacity: 0;
+        transform: translateY(15px); /* Немного всплывает снизу */
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);   /* Встает на место */
+    }
+}
+
+.slider-btn {
+    background: rgba(79, 172, 254, 0.1);
+    border: 1px solid #4facfe;
+    color: #4facfe;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: 0.3s;
+    flex-shrink: 0; /* Чтобы кнопка не сжималась */
+}
+
+.slider-btn:hover {
+    background: #4facfe;
+    color: #000;
+    box-shadow: 0 0 15px rgba(79, 172, 254, 0.4);
+}
+
+.slider-dots {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin-top: 30px;
+}
+
+.dot {
+    width: 10px;
+    height: 10px;
+    background: #333;
+    border-radius: 50%;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.dot.active {
+    background: #4facfe;
+    width: 25px;
+    border-radius: 10px;
+}
+
+/* На мобилках прячем кнопки, оставляем только точки или свайп */
+@media (max-width: 768px) {
+    .slider-btn { display: none; }
+    .reviews-wrapper { gap: 0; }
+}
+
+/* Начальное состояние: элемент прозрачный и немного смещен вниз */
+.reveal {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: all 0.8s ease-out; /* Плавность появления */
+    visibility: hidden;
+}
+
+/* Состояние после появления: элемент на своем месте */
+.reveal.active {
+    opacity: 1;
+    transform: translateY(0);
+    visibility: visible;
+}
