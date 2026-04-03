@@ -470,12 +470,63 @@ h1 {
 }
 
 @media (max-width: 768px) {
-  .features-container { 
-    display: flex;
-    flex-direction: column; 
-    align-items: center;
-    text-align: center;
-  }
+    .about-grid {
+        display: flex;
+        flex-direction: column;
+        gap: 30px;
+    }
+
+    .about-title h2 {
+        font-size: 32px;
+        text-align: left;
+    }
+
+    .what-grid {
+        display: flex;
+        flex-direction: column;
+        padding: 60px 0;
+        gap: 40px;
+    }
+
+    .features-container {
+        width: 100%;
+    }
+
+    .features-image {
+        order: 2; 
+        display: flex;
+        justify-content: center;
+    }
+
+    .features-image img {
+        max-width: 280px; 
+        position: static; 
+    }
+
+    .reviews-wrapper {
+        flex-direction: column;
+        gap: 20px;
+    }
+
+    .reviews-slider {
+        width: 100%;
+        max-width: 100%;
+    }
+
+    .slider-btn {
+        position: static; 
+        transform: none;
+        margin: 0 10px;
+    }
+
+   .slider-controls { 
+        display: flex;
+        justify-content: center;
+        width: 100%;
+        margin-top: 20px;
+        order: 3; 
+    }
+}
 
   .features-image { 
     order: 2; 
@@ -483,7 +534,7 @@ h1 {
     width: 100%; 
     max-width: 300px;
   }
-}
+
 
 .reveal {
     opacity: 0;
